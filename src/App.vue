@@ -13,29 +13,29 @@ const result = computed(() => {
 const generation = computed(() => {
   // return year.value;
   if(year.value >= 1901 && year.value <= 1924){
-    return {name:"This is the Greatest Generation",image:"/Benin.jpg"};
+    return {name:"Generation: The Greatest Generation",image:"/greatest.jpg"};
   }
   if(year.value >= 1925 && year.value <= 1945){
-    return {name:"Generation: The Silent Generation",image:"/slavery.jpg"};
+    return {name:"Generation: The Silent Generation",image:"/silent.jpg"};
   }
   if(year.value >= 1946 && year.value <= 1964){
-    return {name:"The Baby Boomer Generation",image:"/oldschool.jpg"};
+    return {name:"Generation: The Baby Boomer Generation",image:"/boomers.jpg"};
   }
   if(year.value >= 1965 && year.value <= 1979){
-    return {name:"The Generation X",image:"/thenext.jpg"};
+    return {name:"Generation: The Generation X",image:"/gen-x.png"};
   }
   if(year.value >= 1980 && year.value <= 1994){
-    return {name:"Millennials", image:"/the90s.jpg"};
+    return {name:"Generation: Millennials", image:"/mili.jpg"};
   }
   if(year.value >= 1995 && year.value <= 2012){
-    return {name:"Generation Z ", image:"/the-genz.jpg"};
+    return {name:"Generation Z ", image:"/genzone.jpg"};
   }
   if(year.value >= 2013 && year.value <=2025){
-    return {name:"Gen Alpha " ,image:"/emo.jpg"};
+    return {name:"Gen Alpha " ,image:"/alpha.jpg"};
   }
-  else{
-    return{name:"The Name of the Generation shows here",image:"/logo.svg"}
-  }
+  
+  return{name:"The Name of the Generation shows here",image:"/All-generation.jpg"}
+  
 });
 </script>
 
@@ -48,24 +48,24 @@ const generation = computed(() => {
         <div class="the-left">
           <div class="the-form">
             <div class="the-n up">
-              <label for="name">NAME:</label>
-              <input type="text" v-model="input" >
+              <label for="name" id="text">NAME:</label>
+              <input type="text" id="text" v-model="input" >
             </div> <div class="the-n down">
-              <label for="name">D O B :</label>
-              <input type="number" v-model="year" @input="() => { if(year > 1990 && year < 0) { year = 1990 }}">
+              <label for="year" id="year" >D O B :</label>
+              <input type="number" id="year" v-model="year" placeholder="Year of birth" min="1901" max="2025">
             </div>
           </div>
         </div>
         <div class="the-right-side">
           <div class="right-cover">
-            <h1>Welcome:{{ result }}</h1>
+            <h1>Welcome: {{ result }}</h1>
             <p class="gen">  {{ generation?.name }}</p>
             <div class="dif-image">
                 <img alt="Vue logo" class="logo" :src="generation?.image " width="125" height="125" />
             </div>
           </div>
           <div class="the-greetings">
-            <h5>Yours Truely, Mobiana  <font-awesome-icon :icon="['fas', 'heart']" style="color: #ef0629;" /></h5>
+            <h5>Yours Truly, Mobiana  <font-awesome-icon :icon="['fas', 'heart']" style="color: #ef0629;" /></h5>
 
           </div>
         </div>
@@ -184,7 +184,8 @@ input{
 }
 @media (min-width: 600px) {
   .dif-image{
-  /* border:2px solid black; */
+  /* border:2px solid black;
+   */
   width:80%;
   height:150px;
   /* box-shadow: 3px 5px 15px -1px #888888; */
